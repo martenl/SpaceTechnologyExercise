@@ -76,7 +76,7 @@ public class GPSData {
         return gdop;
     }
 
-    static GPSData readFromFile(String fileName){
+    static GPSData parseFromLine(String line){
          return null;
     }
 

@@ -11,44 +11,39 @@ public class TLEData {
 
     // values of line 1
     final private int satelliteNumber;
-    final private int internationalDesignator;
-    final private char internationalDesignatorPiece;
+    final private int launchYear;
+    final private int launchNumber;
+    final private String launchPiece;
     final private int epochYear;
-    final private int Epoch;
-    final private int firstTimeDerivativeOfTheMeanMotionDividedByTwo;
-    final private int secondTimeDerivativeOfMeanMotionDividedBySix;
-    final private int BSTARDragTerm;
-    final private int ElementNumber;
-    final private int checksum;
+    final private double epochDay;
+    final private double derivativeMeanMotion;
 
     // values of line 2
-    final private int inclination;
-    final private int rightAscensionOfTheAscendingNode;
-    final private int eccentricity;
-    final private int argumentOfPerigee;
-    final private int meanAnomaly;
-    final private int meanMotion;
-    final private int RevolutionNumber;
+    final private double inclination;
+    final private double rightAscension;
+    final private double eccentricity;
+    final private double perigee;
+    final private double meanAnomaly;
+    final private double meanMotion;
+    final private int revolutions;
 
 
-    public TLEData(int satelliteNumber, int internationalDesignator, char internationalDesignatorPiece, int epochYear, int epoch, int firstTimeDerivativeOfTheMeanMotionDividedByTwo, int secondTimeDerivativeOfMeanMotionDividedBySix, int bstarDragTerm, int elementNumber, int checksum, int inclination, int rightAscensionOfTheAscendingNode, int eccentricity, int argumentOfPerigee, int meanAnomaly, int meanMotion, int revolutionNumber) {
+
+    public TLEData(int satelliteNumber, int launchYear, int launchNumber, String launchPiece, int epochYear, double epochDay, double derivativeMeanMotion, double inclination, double rightAscension, double eccentricity, double perigee, double meanAnomaly, double meanMotion, int revolutions) {
         this.satelliteNumber = satelliteNumber;
-        this.internationalDesignator = internationalDesignator;
-        this.internationalDesignatorPiece = internationalDesignatorPiece;
+        this.launchYear = launchYear;
+        this.launchNumber = launchNumber;
+        this.launchPiece = launchPiece;
         this.epochYear = epochYear;
-        Epoch = epoch;
-        this.firstTimeDerivativeOfTheMeanMotionDividedByTwo = firstTimeDerivativeOfTheMeanMotionDividedByTwo;
-        this.secondTimeDerivativeOfMeanMotionDividedBySix = secondTimeDerivativeOfMeanMotionDividedBySix;
-        BSTARDragTerm = bstarDragTerm;
-        ElementNumber = elementNumber;
-        this.checksum = checksum;
+        this.epochDay = epochDay;
+        this.derivativeMeanMotion = derivativeMeanMotion;
         this.inclination = inclination;
-        this.rightAscensionOfTheAscendingNode = rightAscensionOfTheAscendingNode;
+        this.rightAscension = rightAscension;
         this.eccentricity = eccentricity;
-        this.argumentOfPerigee = argumentOfPerigee;
+        this.perigee = perigee;
         this.meanAnomaly = meanAnomaly;
         this.meanMotion = meanMotion;
-        RevolutionNumber = revolutionNumber;
+        this.revolutions = revolutions;
     }
 }
 
