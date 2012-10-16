@@ -81,4 +81,9 @@ public class GPSData {
     }
 
 
+    public int compareTo(GPSData dp) {
+        if(getGpsWeek() < dp.getGpsWeek() || getGpsWeek() == gpsWeek && getGpsSecond() < dp.getGpsSecond()) return -1;
+        if(getGpsWeek() == gpsWeek && getGpsSecond() == dp.getGpsSecond()) return 0;
+        return 1;
+    }
 }

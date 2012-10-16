@@ -16,6 +16,9 @@ public class GUI implements ActionListener {
     JFrame frame;
     ControlPanel controlPanel;
     OutputPanel outputPanel;
+    double[] arr = new double[]{10.0,11.0,12.0,14.0,16.0,16.0,19.0};
+    DiagrammPanel diagramm;
+
 
     public void show(){
         frame = new JFrame("Raumfahrttechnik Übung");
@@ -24,9 +27,13 @@ public class GUI implements ActionListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         controlPanel = new ControlPanel();
         outputPanel  = new OutputPanel();
+        diagramm = new DiagrammPanel();
+        diagramm.initDiagramm(50, arr);
         outputPanel.setBounds(200,0,600,600);
+        diagramm.setBounds(400,200,600,600);
         frame.getContentPane().add(controlPanel);
         frame.getContentPane().add(outputPanel);
+        frame.getContentPane().add(diagramm);
         frame.setVisible(true);
     }
     /**
