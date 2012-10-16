@@ -5,21 +5,18 @@ import java.util.*;
 /**
  * Created with IntelliJ IDEA.
  * User: Laptop
- * Date: 20.09.12
- * Time: 19:08
+ * Date: 16.10.12
+ * Time: 15:30
  * To change this template use File | Settings | File Templates.
  */
-public class GPSDataList {
+public class TLEDataList {
+        List<TLEData> data;
 
-    List<GPSData> data;
-    double maxGDOP;
+    TLEDataList(){
+        data = new ArrayList<TLEData>();
+}
 
-    GPSDataList(){
-        data = new ArrayList<GPSData>();
-        maxGDOP = 10.0;
-    }
-
-    public void addDataPoint(GPSData dp){
+    public void addDataPoint(TLEData dp){
         int index = 0;
         while (index < data.size()){
             if(data.get(index).compareTo(dp) == -1) index++;
@@ -27,5 +24,4 @@ public class GPSDataList {
         }
         data.add(index,dp);
     }
-
 }

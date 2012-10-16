@@ -16,6 +16,8 @@ public class TLEData {
     final private String launchPiece;
     final private int epochYear;
     final private double epochDay;
+    final private double epochHour;
+    final private double epochMin;
     final private double derivativeMeanMotion;
 
     // values of line 2
@@ -35,7 +37,14 @@ public class TLEData {
         this.launchNumber = launchNumber;
         this.launchPiece = launchPiece;
         this.epochYear = epochYear;
-        this.epochDay = epochDay;
+        int day = (int)epochDay;
+        double rest = epochDay - (double)day;
+        double hour = (int) (rest * 24.0);
+        double hourRest = hour - rest*24.0;
+        double min = hourRest * 60.0;
+        this.epochDay = day;
+        this.epochHour = hour;
+        this.epochMin = min;
         this.derivativeMeanMotion = derivativeMeanMotion;
         this.inclination = inclination;
         this.rightAscension = rightAscension;
@@ -45,5 +54,56 @@ public class TLEData {
         this.meanMotion = meanMotion;
         this.revolutions = revolutions;
     }
+
+    public int compareTo(TLEData dp) {
+        if(   getEpochYear() == dp.getEpochYear()
+           && getEpochDay() == dp.getEpochDay()
+           && getEpochHour() == dp.getEpochHour()
+           && getEpochMin()  == dp.getEpochMin()     )  return 0;
+        if(   getEpochYear() < dp.getEpochYear()
+           ||  getEpochYear() == dp.getEpochYear() && getEpochDay() < dp.getEpochDay()
+           ||  getEpochYear() == dp.getEpochYear() && getEpochDay() == dp.getEpochDay()   && getEpochHour() < dp.getEpochHour()
+           || getEpochYear() == dp.getEpochYear() && getEpochDay() == dp.getEpochDay()   &&  getEpochHour() == dp.getEpochHour()  && getEpochMin()  < dp.getEpochMin()
+                     )  return -1;
+        return 1;
+    }
+
+    public int getSatelliteNumber() {
+        return satelliteNumber;
+    }
+
+    public int getLaunchYear() {
+        return launchYear;
+    }
+
+   public int getLaunchNumber() {
+        return launchNumber;
+    }
+  public String getLaunchPiece() {
+        return launchPiece;
+    }
+
+    public int getEpochYear() {
+        return epochYear;
+    }
+
+    public double getEpochDay() {
+        return epochDay;
+    }
+
+
+    public double getEpochHour() {
+        return epochHour;
+    }
+
+    public double getEpochMin() {
+        return epochMin;
+    }
+
+
+    public double getDerivativeMeanMotion() {
+        return derivativeMeanMotion;
+    }
+
 }
 
